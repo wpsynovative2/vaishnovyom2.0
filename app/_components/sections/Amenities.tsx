@@ -17,24 +17,27 @@ export function Amenities() {
         </SectionHeading>
       </div>
 
-      {/* Swipe row on phones, five-across on desktop */}
-      <ul className="no-scrollbar mx-auto mt-14 flex max-w-[1320px] snap-x snap-mandatory gap-5 overflow-x-auto px-5 pb-4 md:mt-20 md:px-10 lg:grid lg:grid-cols-5 lg:gap-6 lg:overflow-visible">
+      {/* Wraps: two per row on phones, three on tablets, five on desktop; a short last row is centred */}
+      <ul className="mx-auto mt-14 flex max-w-[1320px] flex-wrap justify-center gap-x-4 gap-y-10 px-5 md:mt-20 md:gap-x-6 md:px-10">
         {featuredAmenities.map((amenity, index) => (
           <li
             key={amenity.name}
             data-reveal
             style={stagger(index)}
-            className={cn("w-[62vw] shrink-0 snap-center sm:w-[38vw] lg:w-auto", index % 2 === 1 && "lg:mt-14")}
+            className={cn(
+              "w-[calc(50%-0.5rem)] sm:w-[calc(33.333%-1rem)] lg:w-[calc(20%-1.2rem)]",
+              index % 2 === 1 && "lg:mt-14",
+            )}
           >
             <ArchFrame
               src={amenity.image}
               alt={`Representative image: ${amenity.name}`}
-              sizes="(min-width: 1024px) 15rem, (min-width: 640px) 38vw, 62vw"
+              sizes="(min-width: 1024px) 15rem, (min-width: 640px) 32vw, 46vw"
               variant={index % 2 === 0 ? "gold" : "aubergine"}
               position={amenity.position}
             />
-            <h3 className="mt-6 text-center font-serif text-xl text-brown">{amenity.name}</h3>
-            <p className="mt-1.5 text-center text-sm text-brown/60">{amenity.caption}</p>
+            <h3 className="mt-5 text-center font-serif text-lg leading-snug text-brown sm:text-xl">{amenity.name}</h3>
+            <p className="mt-1.5 text-center text-xs text-brown/60 sm:text-sm">{amenity.caption}</p>
           </li>
         ))}
       </ul>

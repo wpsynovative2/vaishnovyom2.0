@@ -12,13 +12,18 @@ type Props = {
   source: string;
   configuration?: string;
   submitLabel?: string;
+  /** Tighter two-column layout so the whole form fits in the dialog without scrolling. */
+  compact?: boolean;
 };
 
-const field =
-  "mt-2 w-full rounded-2xl border border-brown/15 bg-white px-4 py-3.5 text-[0.95rem] text-brown placeholder:text-brown/35 transition focus:border-gold focus:outline-none focus:ring-4 focus:ring-gold/20 aria-[invalid=true]:border-red-700";
+const fieldBase =
+  "w-full border border-brown/15 bg-white px-4 text-brown placeholder:text-brown/35 transition focus:border-gold focus:outline-none focus:ring-4 focus:ring-gold/20 aria-[invalid=true]:border-red-700";
 const label = "eyebrow text-[0.62rem] text-brown/70";
 
-export function EnquiryForm({ source, configuration, submitLabel = "Request A Call Back" }: Props) {
+export function EnquiryForm({ source, configuration, submitLabel = "Request A Call Back", compact = false }: Props) {
+  const field = cn(fieldBase, compact ? "mt-1.5 rounded-xl py-2.5 text-sm" : "mt-2 rounded-2xl py-3.5 text-[0.95rem]");
+  // In compact mode, name and configuration share rows with mobile and email.
+  const wide = compact ? undefined : "sm:col-span-2";
   const [state, formAction, pending] = useActionState(submitEnquiry, initialEnquiryState);
   const id = useId();
 
@@ -49,7 +54,7 @@ export function EnquiryForm({ source, configuration, submitLabel = "Request A Ca
         formData.set("pageUrl", window.location.href);
         formAction(formData);
       }}
-      className="grid gap-5 sm:grid-cols-2"
+      className={cn("grid sm:grid-cols-2", compact ? "gap-x-4 gap-y-3" : "gap-5")}
       noValidate
     >
       <input type="hidden" name="source" value={source} />
@@ -61,7 +66,7 @@ export function EnquiryForm({ source, configuration, submitLabel = "Request A Ca
         </label>
       </div>
 
-      <div className="sm:col-span-2">
+      <div className={wide}>
         <label htmlFor={`${id}-name`} className={label}>
           Full name *
         </label>
@@ -121,7 +126,7 @@ export function EnquiryForm({ source, configuration, submitLabel = "Request A Ca
         <FieldError id={`${id}-email-error`} message={errors.email} />
       </div>
 
-      <div className="sm:col-span-2">
+      <div className={wide}>
         <label htmlFor={`${id}-configuration`} className={label}>
           Configuration
         </label>
@@ -147,14 +152,14 @@ export function EnquiryForm({ source, configuration, submitLabel = "Request A Ca
         <textarea
           id={`${id}-message`}
           name="message"
-          rows={3}
+          rows={compact ? 1 : 3}
           defaultValue={values.message}
           className={cn(field, "resize-none")}
         />
       </div>
 
       <div className="sm:col-span-2">
-        <label className="flex cursor-pointer items-start gap-3 text-xs leading-relaxed text-brown/65">
+        <label className={cn("flex cursor-pointer items-start gap-3 text-brown/65", compact ? "text-[0.68rem] leading-snug" : "text-xs leading-relaxed")}>
           <input
             type="checkbox"
             name="consent"
@@ -173,12 +178,12 @@ export function EnquiryForm({ source, configuration, submitLabel = "Request A Ca
       </div>
 
       {state.status === "error" && state.message && (
-        <p role="alert" className="rounded-2xl bg-red-50 px-4 py-3 text-sm text-red-800 sm:col-span-2">
+        <p role="alert" className="rounded-2xl bg-red-50 px-4 py-2.5 text-sm text-red-800 sm:col-span-2">
           {state.message}
         </p>
       )}
 
-      <button type="submit" disabled={pending} className={buttonClass("gold", "w-full disabled:opacity-70 sm:col-span-2")}>
+      <button type="submit" disabled={pending} className={buttonClass("gold", cn("w-full disabled:opacity-70 sm:col-span-2", compact && "py-3.5"))}>
         {pending && <LoaderCircle className="size-4 animate-spin" />}
         {pending ? "Sending…" : submitLabel}
       </button>

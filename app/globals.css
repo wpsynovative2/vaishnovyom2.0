@@ -138,12 +138,26 @@ body {
 
   /* Gold chevron border from the brand kit. */
   .chevron {
-    height: 18px;
-    background: url("/images/border.webp") center / auto 100% repeat-x;
+    --chevron-h: 18px;
+    /* border-tile.webp is 1592×56 and repeats seamlessly */
+    --chevron-w: calc(var(--chevron-h) * 1592 / 56);
+    height: var(--chevron-h);
+    background: url("/images/border-tile.webp") 0 0 / var(--chevron-w) var(--chevron-h) repeat-x;
+    animation: chevron-slide 28s linear infinite;
+  }
+  /* Bottom borders are flipped with rotate-180, so run them backwards to keep moving right-to-left. */
+  .chevron.rotate-180 {
+    animation-direction: reverse;
   }
   @media (min-width: 768px) {
     .chevron {
-      height: 24px;
+      --chevron-h: 24px;
+    }
+  }
+  /* One full tile width, so the loop has no jump. */
+  @keyframes chevron-slide {
+    to {
+      background-position-x: calc(-1 * var(--chevron-w));
     }
   }
 

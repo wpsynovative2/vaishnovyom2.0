@@ -30,9 +30,9 @@ export function EnquiryDialog() {
         // A click on the dialog element itself is a click on the backdrop.
         if (event.target === ref.current) ref.current?.close();
       }}
-      className="open:animate-dialog m-auto max-h-[92svh] w-[min(94vw,60rem)] overflow-hidden rounded-[2rem] bg-cream p-0 text-brown shadow-2xl"
+      className="open:animate-dialog m-auto max-h-[96svh] w-[min(94vw,60rem)] overflow-hidden rounded-[2rem] bg-cream p-0 text-brown shadow-2xl"
     >
-      <div className="grid max-h-[92svh] md:grid-cols-[0.8fr_1.2fr]">
+      <div className="grid max-h-[96svh] md:grid-cols-[0.75fr_1.25fr]">
         <div className="relative hidden overflow-hidden bg-aubergine md:block">
           <Image
             src="/images/elevation-dusk.jpg"
@@ -50,7 +50,7 @@ export function EnquiryDialog() {
           </div>
         </div>
 
-        <div className="relative max-h-[92svh] overflow-y-auto p-6 sm:p-10">
+        <div className="relative max-h-[96svh] overflow-y-auto p-6 sm:px-9 sm:py-7">
           <button
             type="button"
             onClick={() => ref.current?.close()}
@@ -60,13 +60,12 @@ export function EnquiryDialog() {
             <X className="size-4" />
           </button>
           <p className="eyebrow text-gold-deep">Register Your Interest</p>
-          <h2 id="enquiry-dialog-title" className="mt-3 pr-10 font-serif text-3xl leading-tight sm:text-4xl">
+          <h2 id="enquiry-dialog-title" className="mt-2 pr-10 font-serif text-[1.7rem] leading-tight sm:text-3xl">
             {request?.heading ?? "Get Price & Floor Plans"}
           </h2>
-          <p className="mt-3 text-sm text-brown/65">Share your details and our team will call you back.</p>
-          <div className="mt-7">
+          <div className="mt-5">
             {request && (
-              <EnquiryForm key={request.key} source={request.source} configuration={request.configuration} />
+              <EnquiryForm key={request.key} source={request.source} configuration={request.configuration} compact />
             )}
           </div>
         </div>

@@ -1,36 +1,86 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Vaishno Sky — Website
 
-## Getting Started
+Single-page website for Vaishno Sky, Malad (E). Built with Next.js 16, TypeScript and Tailwind CSS v4.
+Enquiries are saved to a Google Sheet and emailed to the sales team through Google Apps Script.
 
-First, run the development server:
+The design and structure are described in [architecture.md](architecture.md).
+
+## Run it
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
+npm run dev        # http://localhost:3000
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+```bash
+npm run build      # production build
+npm run start
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Connect the enquiry form
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Until this is done, the form shows visitors a "not connected" message and no lead is saved.
 
-## Learn More
+1. **Create the Sheet.** Go to [sheets.new](https://sheets.new) and name it, for example, *Vaishno Sky Leads*.
+2. **Add the script.** In the Sheet, open **Extensions → Apps Script**. Delete whatever is there and paste in
+   the whole of [`google-apps-script/Code.gs`](google-apps-script/Code.gs).
+3. **Set the email.** At the top of the script, change `NOTIFY_EMAILS` to the address (or addresses, comma-separated)
+   that should receive each enquiry. Optionally set `SHARED_SECRET` to any long random text.
+4. **Deploy.** Click **Deploy → New deployment**, choose type **Web app**, and set:
+   - *Execute as:* **Me**
+   - *Who has access:* **Anyone**
 
-To learn more about Next.js, take a look at the following resources:
+   Click **Deploy** and approve the permissions Google asks for (Sheets and sending email).
+5. **Copy the web app URL.** It ends in `/exec`.
+6. **Give the URL to the website.** Copy `.env.example` to `.env.local` and fill it in:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+   ```
+   GOOGLE_SCRIPT_URL=https://script.google.com/macros/s/XXXXXXXX/exec
+   GOOGLE_SCRIPT_SECRET=            # same text as SHARED_SECRET, if you set one
+   NEXT_PUBLIC_SITE_URL=https://your-domain.com
+   ```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+   On Vercel, add the same three values under **Project → Settings → Environment Variables**, then redeploy.
+7. **Test.** Restart the site, submit the form once, and check that a row appears in the *Leads* tab and an
+   email arrives.
 
-## Deploy on Vercel
+If you change the script later, publish it with **Deploy → Manage deployments → Edit → New version**.
+Saving alone does not update the live web app.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Each lead records: time, name, mobile, email, configuration, message, the button the visitor clicked
+(`source`), and the page URL including any ad tracking parameters.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Change the content
+
+All text and data live in [`app/_content/`](app/_content/) — no need to touch the components.
+
+| To change | Edit |
+|---|---|
+| Phone, email, address, RERA number, menu | `site.ts` |
+| Overview and About text | `overview.ts` |
+| Highlights | `highlights.ts` |
+| Amenities and their photos | `amenities.ts` |
+| Layouts, carpet areas, floor plans | `configurations.ts` |
+| Travel times | `connectivity.ts` |
+
+### Add floor plan images
+
+Put the images in `public/floor-plans/` and add an `image` to the matching layout in `configurations.ts`:
+
+```ts
+{ id: "1bhk-5", type: "1 BHK", name: "1 BHK", series: "5", carpet: 484, formOption: "1 BHK",
+  image: "/floor-plans/1bhk-series-5.jpg" },
+```
+
+Layouts without an image show a placeholder card with a "Request This Plan" button.
+
+## Folders
+
+```
+app/_content/       text and data
+app/_components/    layout, sections and shared UI
+app/actions/        enquiry form server action
+google-apps-script/ script to paste into Google Sheets
+design/             brand kit PDF and reference image (not published)
+public/             images and fonts
+```

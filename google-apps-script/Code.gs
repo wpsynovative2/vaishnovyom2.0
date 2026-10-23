@@ -1,5 +1,5 @@
 /**
- * Vaishno Sky — enquiry receiver.
+ * Vaishno Vyom — enquiry receiver.
  * Saves every website enquiry to this Google Sheet and emails the sales team.
  * Setup steps are in the project README ("Connect the enquiry form").
  */
@@ -60,7 +60,7 @@ function doPost(e) {
 
 // Lets you open the web app URL in a browser to confirm it is live.
 function doGet() {
-  return reply({ ok: true, service: 'Vaishno Sky enquiry receiver' });
+  return reply({ ok: true, service: 'Vaishno Vyom enquiry receiver' });
 }
 
 function getSheet() {
@@ -87,7 +87,7 @@ function sendAlert(data, received) {
   ];
   var html =
     '<div style="font-family:Arial,sans-serif;max-width:560px">' +
-    '<div style="background:#280F24;color:#CDA454;padding:18px 24px;font-size:18px;letter-spacing:2px">VAISHNO SKY — NEW ENQUIRY</div>' +
+    '<div style="background:#280F24;color:#CDA454;padding:18px 24px;font-size:18px;letter-spacing:2px">VAISHNO VYOM — NEW ENQUIRY</div>' +
     '<table style="width:100%;border-collapse:collapse;border:1px solid #eadfcb">' +
     rows
       .map(function (row) {
@@ -106,7 +106,7 @@ function sendAlert(data, received) {
     to: NOTIFY_EMAILS,
     subject: 'New enquiry: ' + data.name + (data.configuration ? ' (' + data.configuration + ')' : ''),
     htmlBody: html,
-    name: 'Vaishno Sky Website',
+    name: 'Vaishno Vyom Website',
   };
   if (data.email) options.replyTo = data.email;
   MailApp.sendEmail(options);

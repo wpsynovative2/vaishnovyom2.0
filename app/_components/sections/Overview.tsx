@@ -30,7 +30,7 @@ export function Overview() {
             <div className="absolute inset-0 translate-x-4 translate-y-5 rounded-full bg-aubergine md:translate-x-10 md:translate-y-8" aria-hidden />
             <ArchFrame
               src="/images/elevation-day.jpg"
-              alt="Artist's impression of Vaishno Sky seen from Rani Sati Road by day"
+              alt="Artist's impression of Vaishno Vyom seen from Rani Sati Road by day"
               sizes="(min-width: 1024px) 24rem, 80vw"
               className="bg-cream"
             />

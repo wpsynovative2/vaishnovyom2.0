@@ -75,7 +75,7 @@ export function Hero() {
             />
             <ArchFrame
               src="/images/elevation-clouds.jpg"
-              alt="Artist's impression of the Vaishno Sky tower rising above the clouds"
+              alt="Artist's impression of the Vaishno Vyom tower rising above the clouds"
               sizes="(min-width: 1024px) 26rem, (min-width: 640px) 24rem, 19rem"
               preload
             />

@@ -1,22 +1,22 @@
 export const site = {
-  name: "Vaishno Sky",
+  name: "Vaishno Vyom",
   locality: "Malad (E)",
   codename: "Go Grand",
   developer: "Vaishno Homes",
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000",
-  title: "Vaishno Sky, Malad East — 1 & 2 BHK and Jodi Residences",
+  title: "Vaishno Vyom, Malad East — 1 & 2 BHK and Jodi Residences",
   description:
-    "Vaishno Sky is a residential high-rise at Kathiyawadi Chowk, Malad (East) with 1 & 2 BHK and Jodi residences of 484–1646 sq.ft. above an elevated amenities sky-deck, 2 minutes from Dindoshi Metro.",
+    "Vaishno Vyom is a residential high-rise at Kathiyawadi Chowk, Malad (East) with 1 & 2 BHK and Jodi residences of 484–1646 sq.ft. above an elevated amenities sky-deck, 2 minutes from Dindoshi Metro.",
   phoneDisplay: "+91 96533 59559",
   phoneHref: "tel:+919653359559",
   whatsappHref:
     "https://wa.me/919653359559?text=" +
-    encodeURIComponent("Hello, I would like to know more about Vaishno Sky, Malad (E)."),
+    encodeURIComponent("Hello, I would like to know more about Vaishno Vyom, Malad (E)."),
   email: "sales@vaishnosky.com",
-  addressLines: ["Vaishno Sky, Kathiyawadi Chowk,", "Rani Sati Road, Malad (East),", "Mumbai 400097"],
+  addressLines: ["Vaishno Vyom, Kathiyawadi Chowk,", "Rani Sati Road, Malad (East),", "Mumbai 400097"],
   mapsHref:
     "https://www.google.com/maps/search/?api=1&query=" +
-    encodeURIComponent("Vaishno Sky, Kathiyawadi Chowk, Rani Sati Road, Malad East, Mumbai 400097"),
+    encodeURIComponent("Vaishno Vyom, Kathiyawadi Chowk, Rani Sati Road, Malad East, Mumbai 400097"),
   rera: "P51800076925",
   reraHref: "https://maharera.maharashtra.gov.in/",
   year: 2026,

@@ -14,7 +14,7 @@ export function Footer() {
         <div className="shell py-16 md:py-20">
           <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-[1.3fr_0.8fr_1fr_1.2fr]">
             <div>
-              <Image src="/images/logo-full.png" alt={`${site.name}, ${site.locality}`} width={600} height={644} className="h-auto w-36" />
+              <Image src="/images/vaishno-vyom-full.png" alt={`${site.name}, ${site.locality}`} width={600} height={538} className="h-auto w-36" />
               <p className="mt-6 max-w-xs text-sm leading-relaxed text-cream/65">
                 A higher place in the city. 1 &amp; 2 BHK and Jodi residences above an amenities sky-deck in Malad (East).
               </p>

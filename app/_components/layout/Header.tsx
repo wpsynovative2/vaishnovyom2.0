@@ -57,7 +57,7 @@ export function Header() {
           )}
         >
           <a href="#top" className="flex shrink-0 items-center gap-3" aria-label={`${site.name} — back to top`}>
-            <Image src="/images/logo-mark.png" alt="" width={400} height={374} className="h-9 w-auto md:h-10" />
+            <Image src="/images/vaishno-vyom-mark.png" alt="" width={400} height={357} className="h-9 w-auto md:h-10" />
             <span className="whitespace-nowrap leading-none">
               <span className="block font-sans text-[0.8rem] font-medium uppercase tracking-[0.3em] text-gold-gradient md:text-sm">
                 {site.name}

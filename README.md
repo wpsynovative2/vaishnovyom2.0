@@ -1,6 +1,6 @@
-# Vaishno Sky — Website
+# Vaishno Vyom — Website
 
-Single-page website for Vaishno Sky, Malad (E). Built with Next.js 16, TypeScript and Tailwind CSS v4.
+Single-page website for Vaishno Vyom, Malad (E). Built with Next.js 16, TypeScript and Tailwind CSS v4.
 Enquiries are saved to a Google Sheet and emailed to the sales team through Google Apps Script.
 
 The design and structure are described in [architecture.md](architecture.md).
@@ -21,7 +21,7 @@ npm run start
 
 Until this is done, the form shows visitors a "not connected" message and no lead is saved.
 
-1. **Create the Sheet.** Go to [sheets.new](https://sheets.new) and name it, for example, *Vaishno Sky Leads*.
+1. **Create the Sheet.** Go to [sheets.new](https://sheets.new) and name it, for example, *Vaishno Vyom Leads*.
 2. **Add the script.** In the Sheet, open **Extensions → Apps Script**. Delete whatever is there and paste in
    the whole of [`google-apps-script/Code.gs`](google-apps-script/Code.gs).
 3. **Set the email.** At the top of the script, change `NOTIFY_EMAILS` to the address (or addresses, comma-separated)

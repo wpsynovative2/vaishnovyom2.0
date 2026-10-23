@@ -1,6 +1,6 @@
-# Vaishno Sky — Website Architecture
+# Vaishno Vyom — Website Architecture
 
-Single-page marketing and lead-generation website for **Vaishno Sky, Malad (E)** — codename **Go Grand**.
+Single-page marketing and lead-generation website for **Vaishno Vyom, Malad (E)** — codename **Go Grand**.
 
 This document is the build plan: what the site contains, how it should look, how the code is organised, and what is still missing. Read it top to bottom before writing code.
 
@@ -126,7 +126,7 @@ Content below is taken from the reference site. **Treat every fact as a draft un
 
 ### Header
 
-Logo (`logo-mark.png` + wordmark) left, eight anchor links centre, phone number and **Enquire Now** pill right. Below 1360px the links collapse into a full-screen aubergine menu with the links numbered 01–08. The link for the section in view is underlined in gold.
+Logo (`vaishno-vyom-mark.png` + wordmark) left, eight anchor links centre, phone number and **Enquire Now** pill right. Below 1360px the links collapse into a full-screen aubergine menu with the links numbered 01–08. The link for the section in view is underlined in gold.
 
 ### Hero
 
@@ -236,13 +236,13 @@ Aubergine inset panel. Top: heading beside a travel-time ring diagram (minutes, 
 | S. V. Road | 7 min | Vaishno Business Centre | 3 min |
 | International Airport | 20 min | Oberoi Mall | 5 min |
 
-Address: Vaishno Sky, Kathiyawadi Chowk, Rani Sati Road, Malad (East), Mumbai 400097.
+Address: Vaishno Vyom, Kathiyawadi Chowk, Rani Sati Road, Malad (East), Mumbai 400097.
 
 CTAs: **Open In Google Maps** · **Plan My Site Visit**
 
 ### 8. Contact Us — "Answer The Golden Call"
 
-Two columns. Left: `logo-badge.png`, address, phone (+91 96533 59559), email (sales@vaishnosky.com), WhatsApp link, MahaRERA number linked to the state portal. Right: the enquiry form in a cream card.
+Two columns. Left: `vaishno-vyom-badge.png`, address, phone (+91 96533 59559), email (sales@vaishnosky.com), WhatsApp link, MahaRERA number linked to the state portal. Right: the enquiry form in a cream card.
 
 Form fields:
 
@@ -271,7 +271,7 @@ app/
   page.tsx                assembles the sections in order + JSON-LD
   globals.css             Tailwind import, @theme tokens, base styles
   fonts.ts                next/font/local definitions
-  icon.png                favicon (from logo-mark)
+  icon.png                favicon (from vaishno-vyom-mark)
   robots.ts
   sitemap.ts
   actions/
@@ -377,7 +377,7 @@ EnquiryForm (client)
 
 | Group | Files |
 |---|---|
-| Logos | `logo-full.png`, `logo-mark.png`, `logo-badge.png`, `go-grand.png` |
+| Logos | `vaishno-vyom-full.png`, `vaishno-vyom-mark.png`, `vaishno-vyom-badge.png`, `go-grand.png` |
 | Decoration | `pattern.png`, `border.png` |
 | Elevations (7) | `elevation-day`, `-dusk`, `-clouds`, `-street` (2000×2000), `-boulevard`, `-reveal`, `-alt` |
 | Amenities (5) | `amenity-pool`, `-gym`, `-spa`, `-garden`, `-clubhouse` |
@@ -405,7 +405,7 @@ EnquiryForm (client)
 
 | # | Question | Assumed until answered |
 |---|---|---|
-| 1 | The project folder is named **Vaishno Vyom**, but the logo, brand kit and reference site all say **Vaishno Sky**. Which name goes on the site? | Vaishno Sky |
+| 1 | The project folder is named **Vaishno Vyom**, but the logo, brand kit and reference site all say **Vaishno Sky**. Which name goes on the site? | Vaishno Vyom (the Vaishno Sky logo was replaced with the Vaishno Vyom logo) |
 | 2 | The brand kit labels the light background `#FFF3E1` (cream) but paints that swatch bright yellow (`#FED14B`). Which is intended? | Cream `#FFF3E1` as written |
 | 3 | Are the facts from the reference site final — areas, series, travel times, phone, email, RERA number? | Used as drafts |
 | 4 | Should floor plan drawings be locked behind the form once they are supplied? | No — shown openly |

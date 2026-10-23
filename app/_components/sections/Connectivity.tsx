@@ -14,7 +14,7 @@ const RADII = [62, 112, 156, 215];
 function TravelRings() {
   return (
     <div className="relative mx-auto aspect-[600/480] w-full max-w-[40rem]">
-      <svg viewBox="-60 0 600 480" className="h-full w-full" role="img" aria-label="Diagram of travel times from Vaishno Sky">
+      <svg viewBox="-60 0 600 480" className="h-full w-full" role="img" aria-label="Diagram of travel times from Vaishno Vyom">
         {RADII.map((radius, index) => (
           <g key={radius}>
             <circle

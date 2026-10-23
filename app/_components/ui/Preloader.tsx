@@ -9,10 +9,10 @@ export function Preloader() {
       aria-hidden
     >
       <Image
-        src="/images/logo-mark.png"
+        src="/images/vaishno-vyom-mark.png"
         alt=""
         width={400}
-        height={374}
+        height={357}
         loading="eager"
         className="preloader-mark h-auto w-28 md:w-36"
       />

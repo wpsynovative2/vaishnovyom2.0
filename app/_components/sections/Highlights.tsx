@@ -23,7 +23,7 @@ export function Highlights() {
           <div data-reveal="zoom" className="group relative aspect-[16/10] overflow-hidden rounded-[2rem] ring-1 ring-gold/50 md:rounded-[2.5rem]">
             <Image
               src="/images/elevation-reveal.jpg"
-              alt="Artist's impression of Vaishno Sky unveiled at night, draped in red and gold"
+              alt="Artist's impression of Vaishno Vyom unveiled at night, draped in red and gold"
               fill
               sizes="(min-width: 1024px) 40rem, 92vw"
               className="object-cover transition-transform duration-[2000ms] ease-grand group-hover:scale-105"

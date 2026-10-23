@@ -24,7 +24,7 @@ export function Contact() {
           <div className="flex items-start gap-8">
             <Image
               data-reveal="zoom"
-              src="/images/logo-badge.png"
+              src="/images/vaishno-vyom-badge.png"
               alt={`${site.name}, ${site.locality}`}
               width={600}
               height={847}

@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     siteName: site.name,
     title: site.title,
     description: site.description,
-    images: [{ url: "/images/elevation-boulevard.jpg", width: 1672, height: 940, alt: "Vaishno Sky, Malad (East)" }],
+    images: [{ url: "/images/elevation-boulevard.jpg", width: 1672, height: 940, alt: "Vaishno Vyom, Malad (East)" }],
   },
   twitter: {
     card: "summary_large_image",

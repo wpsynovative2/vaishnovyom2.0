@@ -52,7 +52,7 @@ export function Header() {
           className={cn(
             "mx-auto flex max-w-[1320px] items-center min-[1640px]:max-w-[1560px] justify-between gap-4 rounded-full border py-2 pl-4 pr-2 transition-all duration-700 ease-grand md:pl-6",
             scrolled || menuOpen
-              ? "border-gold/30 bg-aubergine/90 shadow-[0_18px_40px_-20px_rgba(40,15,36,0.8)] backdrop-blur-md"
+              ? "border-gold/30 bg-aubergine/90 shadow-[0_18px_40px_-20px_rgba(53,21,0,0.8)] backdrop-blur-md"
               : "border-transparent bg-transparent md:mt-3",
           )}
         >

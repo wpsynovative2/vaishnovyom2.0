@@ -19,7 +19,7 @@ export function ArchFrame({ src, alt, sizes, variant = "gold", position, preload
     <div
       className={cn(
         "group relative aspect-[10/14] rounded-full",
-        aubergine ? "bg-aubergine shadow-[0_30px_60px_-30px_rgba(40,15,36,0.7)]" : "border border-gold/70",
+        aubergine ? "bg-aubergine shadow-[0_30px_60px_-30px_rgba(53,21,0,0.7)]" : "border border-gold/70",
         className,
       )}
     >

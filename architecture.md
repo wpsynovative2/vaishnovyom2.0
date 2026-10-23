@@ -61,8 +61,8 @@ Light and dark sections alternate on purpose. Each change of background is marke
 |---|---|---|---|
 | `gold` | `#CDA454` | brand kit | headings on dark, hairlines, buttons, icons |
 | `brown` | `#351500` | brand kit "background" | dark sections, footer, body text on light |
-| `aubergine` | `#280F24` | sampled from logo badge | header, arch panels, connectivity section |
-| `aubergine-soft` | `#37102F` | sampled from brand kit shape | hover and raised surfaces on aubergine |
+| `aubergine` | `#351500` | brand kit "background" (was `#280F24`) | header, arch panels, connectivity section |
+| `aubergine-soft` | `#4A1F00` | lighter step of brown | hover and raised surfaces on aubergine |
 | `cream` | `#FFF3E1` | brand kit "background" | light sections |
 | `white` | `#FFFFFF` | brand kit "background" | light sections, always with the pattern |
 | `gold-deep` | `#8A6A24` | **derived, not in kit** | gold-coloured text on cream or white |

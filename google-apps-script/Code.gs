@@ -68,7 +68,7 @@ function getSheet() {
   var sheet = book.getSheetByName(SHEET_NAME) || book.insertSheet(SHEET_NAME);
   if (sheet.getLastRow() === 0) {
     sheet.appendRow(HEADERS);
-    sheet.getRange(1, 1, 1, HEADERS.length).setFontWeight('bold').setBackground('#280F24').setFontColor('#CDA454');
+    sheet.getRange(1, 1, 1, HEADERS.length).setFontWeight('bold').setBackground('#351500').setFontColor('#CDA454');
     sheet.setFrozenRows(1);
   }
   return sheet;
@@ -87,7 +87,7 @@ function sendAlert(data, received) {
   ];
   var html =
     '<div style="font-family:Arial,sans-serif;max-width:560px">' +
-    '<div style="background:#280F24;color:#CDA454;padding:18px 24px;font-size:18px;letter-spacing:2px">VAISHNO VYOM — NEW ENQUIRY</div>' +
+    '<div style="background:#351500;color:#CDA454;padding:18px 24px;font-size:18px;letter-spacing:2px">VAISHNO VYOM — NEW ENQUIRY</div>' +
     '<table style="width:100%;border-collapse:collapse;border:1px solid #eadfcb">' +
     rows
       .map(function (row) {
